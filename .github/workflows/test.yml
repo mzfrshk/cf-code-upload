@@ -1,0 +1,27 @@
+name: Test
+on:
+
+  push:
+    branches:
+      - master
+      - develop
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  run_tests:
+    name: Run Tests
+    runs-on:
+      group: default
+    steps:
+      - uses: SallaApp/.CI/worker-backend/test@master
+        with:
+          codacy_token: ${{ secrets.CODACY_API_TOKEN }}
+          node_version: "18"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          npm_token: ${{ secrets.NPM_TOKEN }}
+

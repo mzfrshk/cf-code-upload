@@ -1,0 +1,22 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+
+# node.js dependencies
+node_modules
+
+# worker"s configuration file
+wrangler.toml
+.wrangler
+
+# miniflare cache
+.mf
+
+# test coverage report
+coverage
+
+# build output
+dist
+
+.eslintcache
+
+pnpm-lock.yaml

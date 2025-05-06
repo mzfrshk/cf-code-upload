@@ -1,0 +1,41 @@
+name: Build & Deploy
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  deploy:
+    runs-on:
+      group: default
+    environment:
+      name: ${{ github.ref == 'refs/heads/master' && 'prod' || 'dev' }}
+
+    env:
+      TEST_ENV_SECRET: ${{ secrets.ASSETS_DEV_S3_BUCKET }}
+      TEST_ENV_SECRET_2: ${{ secrets.ASSETS_DEV_S3_BUCKET }}
+      TEST_ENV: test-value
+
+    steps:
+      - uses: SallaApp/.CI/worker-backend/build-deploy@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          npm_token: ${{ secrets.NPM_TOKEN }}
+          cf_account_id: ${{ secrets.CF_ACCOUT_ID_SALLA_GROUP }}
+          cf_api_token: ${{ secrets.CF_API_TOKEN }}
+          environment: ${{ github.ref == 'refs/heads/master' && 'prod' || 'dev' }}
+          secrets: |
+            TEST_ENV_SECRET
+            TEST_ENV_SECRET_2
+          vars: |
+            TEST_ENV
+          kv: |
+            BINDING_NAME_1
+            BINDING_NAME_2

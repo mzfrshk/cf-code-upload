@@ -1,0 +1,86 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "import", "spellcheck"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "spellcheck/spell-checker": [
+      1,
+      {
+        "comments": true,
+        "strings": true,
+        "identifiers": true,
+        "templates": true,
+        "lang": "en_US",
+        "minLength": 1,
+        "skipWords": [
+          "dict",
+          "aff",
+          "hunspellchecker",
+          "hunspell",
+          "utils",
+          "zod",
+          "vitest",
+          "hono",
+          "salla",
+          "miniflare",
+          "typecheck",
+          "esbuild",
+          "cloudflare",
+          "middlewares",
+          "iss",
+          "req",
+          "Hono",
+          "honojs",
+          "Honojs",
+          "Zod",
+          "happend",
+          "tsc"
+        ],
+        "skipIfMatch": [],
+        "skipWordIfMatch": [],
+        "ignoreRequire": false,
+        "enableUpperCase": false
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": true,
+        "singleQuote": false,
+        "printWidth": 80,
+        "tabWidth": 2,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "arrowParens": "always"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["builtin", "external", "internal"],
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+# Read about how to use this configuration file
+# https://developers.cloudflare.com/workers/wrangler/configuration
+
+name = "var.WORKER_NAME"
+main = "src/index.ts"
+compatibility_date = "2024-09-26"
+compatibility_flags = []
+
+routes = [
+  # Prod
+  # { pattern = "https://api.salla.dev/{service}/v1/*", zone_name = "salla.dev" },
+
+  # Dev/Beta
+  # { pattern = "https://*.salla.group/{service}/v1/*", zone_name = "salla.group" },
+]
+
+[env.prod]
+name = "var.WORKER_NAME"
+workers_dev = false
+
+# kv_namespaces = [
+#   { binding = "BINDING_NAME_1", id = "vars.BINDING_NAME_1" },
+#   { binding = "BINDING_NAME_2", id = "vars.BINDING_NAME_2" }
+# ]
+
+# services = [
+#   { binding = "EXCHANGE_AUTHORITY", service = "exchange-authority-service-prod" }
+# ]
+
+[env.prod.vars]
+
+[env.stage]
+name = "var.WORKER_NAME"
+# kv_namespaces = [
+#   { binding = "BINDING_NAME_1", id = "vars.BINDING_NAME_1" },
+#   { binding = "BINDING_NAME_2", id = "vars.BINDING_NAME_2" }
+# ]
+[env.stage.vars]
+
+
+[env.dev]
+name = "var.WORKER_NAME"
+# kv_namespaces = [
+#   { binding = "BINDING_NAME_1", id = "vars.BINDING_NAME_1" },
+#   { binding = "BINDING_NAME_2", id = "vars.BINDING_NAME_2" }
+# ]
+[env.dev.vars]

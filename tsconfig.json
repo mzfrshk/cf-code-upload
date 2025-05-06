@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "./src",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "~/*": ["./*"]
+    },
+    "types": ["@cloudflare/workers-types"],
+    "noEmit": true,
+    "esModuleInterop": true,
+    "lib": ["esnext"],
+    "target": "esnext",
+    "skipLibCheck": true
+  },
+  "include": [
+    "./bindings.d.ts",
+    "./vitest.config.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./test/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,31 @@
+# Read about how to use this configuration file
+# https://developers.cloudflare.com/workers/wrangler/configuration
+
+name = "worker-typescript-template"
+main = "src/index.ts"
+account_id = ""
+compatibility_date = "2024-09-26"
+compatibility_flags = []
+
+routes = [
+  # Prod
+  # { pattern = "https://api.salla.dev/{service}/v1/*", zone_name = "salla.dev" },
+
+  # Dev/Beta
+  # { pattern = "https://*.salla.group/{service}/v1/*", zone_name = "salla.group" },
+]
+
+# [triggers]
+#   crons = ["0 * * * *"]
+
+# [vars]
+#   EXAMPLE_ENVIRONMENT_VARIABLE = "Hello, World!"
+
+# [[kv_namespaces]]
+#   binding = "<NAMESPACE_NAME>"
+#   id = "<NAMESPACE_ID>"
+#   preview_id = "<NAMESPACE_PREVIEW_ID>"
+
+[miniflare]
+  kv_persist = true
+  cache_persist = true
